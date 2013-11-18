@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{CFBD6639-DFFD-CF2E-4CCE-15C23E1F664F}</ProjectGuid>
+	<ProjectGuid>{AEC9E8A3-D1F7-429F-1BC6-A2FE8F6191B9}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -98,6 +98,9 @@
      <None Include="Assets\Plugins\Android\res\layout\com_facebook_placepickerfragment.xml" />
      <None Include="Assets\Plugins\Android\res\drawable\com_facebook_loginbutton_blue.xml" />
      <None Include="Assets\Plugins\Android\res\layout\com_facebook_usersettingsfragment.xml" />
+ <Reference Include="App42_Unity3D_SDK_1.9">
+ <HintPath>Assets\App42_Unity3D_SDK_1.9.dll</HintPath>
+ </Reference>
  <Reference Include="IFacebook">
  <HintPath>Assets\Facebook\Scripts\IFacebook.dll</HintPath>
  </Reference>
@@ -119,13 +122,10 @@
  <Reference Include="UnityEditor.Android.Extensions">
  <HintPath>C:\Program Files (x86)\Unity\Editor\Data\PlaybackEngines\AndroidPlayer\EditorExtensions\UnityEditor.Android.Extensions.dll</HintPath>
  </Reference>
- <Reference Include="App42_Unity3D_SDK_1.9">
- <HintPath>Assets\App42_Unity3D_SDK_1.9.dll</HintPath>
- </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{05923D72-0CBD-BDF4-0144-94D7A0C9AA83}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+      <Project>{244AA125-D5BE-CAC7-C012-486C5D09809A}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

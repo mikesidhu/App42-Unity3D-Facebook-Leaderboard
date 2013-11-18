@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{05923D72-0CBD-BDF4-0144-94D7A0C9AA83}</ProjectGuid>
+	<ProjectGuid>{244AA125-D5BE-CAC7-C012-486C5D09809A}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -91,11 +91,11 @@
      <None Include="Assets\Plugins\Android\res\layout\com_facebook_placepickerfragment.xml" />
      <None Include="Assets\Plugins\Android\res\drawable\com_facebook_loginbutton_blue.xml" />
      <None Include="Assets\Plugins\Android\res\layout\com_facebook_usersettingsfragment.xml" />
- <Reference Include="IFacebook">
- <HintPath>Assets\Facebook\Scripts\IFacebook.dll</HintPath>
- </Reference>
  <Reference Include="App42_Unity3D_SDK_1.9">
  <HintPath>Assets\App42_Unity3D_SDK_1.9.dll</HintPath>
+ </Reference>
+ <Reference Include="IFacebook">
+ <HintPath>Assets\Facebook\Scripts\IFacebook.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

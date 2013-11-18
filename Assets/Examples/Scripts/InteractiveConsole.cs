@@ -9,12 +9,9 @@ using System.Text.RegularExpressions;
 public sealed class InteractiveConsole : MonoBehaviour
 {
     #region FB.Init() example
-
+	private string status = "";
     private bool isInit = false;
 	private bool app42 = true;
-	private string fbResponse = null;
-	private string userName = null;
-	List<GUIContent> items = new List<GUIContent> ();
 	App42Console app42Connect = new App42Console();
 	public string score;
     Vector2 scrollVector;
@@ -77,12 +74,8 @@ public sealed class InteractiveConsole : MonoBehaviour
 
     #region GUI
 
-    private string status = "Ready";
     private string rank,name,scoreValue;
-
-    private string lastResponse = "";
     public GUIStyle textStyle = new GUIStyle();
-	
     private Vector2 scrollPosition = Vector2.zero;
 #if UNITY_IOS || UNITY_ANDROID
     int buttonHeight = 60;
@@ -111,7 +104,6 @@ public sealed class InteractiveConsole : MonoBehaviour
     {
         textStyle.alignment = TextAnchor.UpperLeft;
         textStyle.wordWrap = true;
-       // textStyle.padding = new RectOffset(10, 10, 10, 10);
         textStyle.stretchHeight = true;
         textStyle.stretchWidth = false;
 	}
@@ -149,7 +141,7 @@ public sealed class InteractiveConsole : MonoBehaviour
        
 		if(FB.AccessToken !="" && app42){
 		    app42 = false;
-			app42Connect.SocialConnectWithApp42(FB.UserId,FB.AccessToken);
+			app42Connect.SocialConnectWithApp42(FB.AccessToken);
 		}
 
         if (IsHorizontalLayout())

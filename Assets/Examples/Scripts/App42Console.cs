@@ -6,7 +6,6 @@ using System.Net;
 using System;
 using System.Net.Security;
 using com.shephertz.app42.paas.sdk.csharp;
-using com.shephertz.app42.paas.sdk.csharp.social;
 using com.shephertz.app42.paas.sdk.csharp.game;
 using System.Security.Cryptography.X509Certificates;
 using SimpleJSON;
@@ -21,31 +20,17 @@ public class App42Console : MonoBehaviour,App42CallBack {
 	public static List<object> fList = new List<object> ();
 	ServiceAPI sp =null;
 	ScoreBoardService scoreService = null;
-	string text= null;
-	private bool isLoded= false;
 	SaveCallback callback = new SaveCallback();
 	AppConstant constants = new AppConstant();
 	public string name;
 		
-	void Start () {
-	
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-	
 	
 	void OnGUI()
     {
 		if(AppConstant.GetSaved()){
 			AppConstant.SetSaved(false);
-			
-			SocialConnectWithApp42(FB.UserId,FB.AccessToken);
+			SocialConnectWithApp42(FB.AccessToken);
 			fList = new List<object>();
-			
 		}
 	}
 	
@@ -54,13 +39,11 @@ public class App42Console : MonoBehaviour,App42CallBack {
 		scoreService.SaveUserScore(constants.GameName, userId, Convert.ToDouble(score), callback);
 	}
 	
-	public void SocialConnectWithApp42(string userId, string fbAccessToken)
+	public void SocialConnectWithApp42(string fbAccessToken)
 	{
 	 sp = AppConstant.GetServce();
 	 scoreService = AppConstant.GetScoreService(sp);
 	 scoreService.GetTopNRankersFromFacebook(constants.GameName, fbAccessToken, 10, this);
-		
-	 AppConstant.GetInstance().ExecuteGet("https://graph.facebook.com/"+userId);	
 	}
 	
 	public void OnSuccess (object response)
