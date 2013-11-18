@@ -42,15 +42,6 @@ public sealed class InteractiveConsole : MonoBehaviour
         Debug.Log("Is game showing? " + isGameShown);
     }
 	
-//	void AuthChangeDelegate(){
-//		if(FB.IsLoggedIn) {
-//		  string url = "https://graph.facebook.com/696700173";
-//		  WWW www = new WWW(url);
-//		  yield return www;
-//		  fbResponse = www.text;
-//		}
-//	}
-
     #endregion
 
     #region FB.Login() example

@@ -34,11 +34,5 @@ public class SaveCallback : MonoBehaviour,App42CallBack {
 	public void OnException (Exception e)
 	{
 		ServiceAPI sp = AppConstant.GetServce();
-		
-//		JSONClass json = new JSONClass();
-//		json.Add("userId",FB.UserId);
-//		json.Add("userName",AppConstant.GetUserName());
-//		AppConstant.GetStorageService(sp).InsertJSONDocument(AppConstant.DBName, AppConstant.CollectionName,json,this);
-		
 	}
 }
