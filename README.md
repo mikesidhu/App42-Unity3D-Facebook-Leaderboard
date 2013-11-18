@@ -1,2 +1,2 @@
-App42-Unity3D-Facebook-Leaderboard
-==================================
+App42-Unity3d-Social-Leaderboard
+================================
