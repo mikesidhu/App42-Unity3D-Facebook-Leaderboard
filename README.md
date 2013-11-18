@@ -64,7 +64,8 @@ To build an instance of ScoreBoardService, BuildScoreBoardService() method needs
 ```
 
 Saving Facebook User Score.
-For saving user score, we need at least a gameName, facebook userId to whome score have to be save, score value, and a callback.
+
+For saving facebook user score, we need at least a gameName, facebook userId to whome score have to be save, score value, and a callback.
 
 ```
 public class App42Console : MonoBehaviour,App42CallBack
@@ -79,15 +80,6 @@ Here is the CallBack for Response of saved score :-
 ```
 public class SaveCallback : MonoBehaviour,App42CallBack 
 {
-
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	}
-	
 	public void OnSuccess (object response)
 	{
 		AppConstant.SetSaved(true);
@@ -103,7 +95,7 @@ Now We have to show the leaderboard of facebook game players.
 ```
 public class App42Console : MonoBehaviour,App42CallBack 
 {
-  public void SocialConnectWithApp42(string userId, string fbAccessToken)
+  public void SocialConnectWithApp42(string fbAccessToken)
   	{
   	 sp = AppConstant.GetServce();
   	 scoreService = AppConstant.GetScoreService(sp);
@@ -138,6 +130,6 @@ public class App42Console : MonoBehaviour,App42CallBack
   }
 }
 ```
-Note: Facebook Unity3d SDK doesn’t  support desktop applications at the moment. 
+__Note:__ Facebook Unity3d SDK doesn’t  support desktop applications at the moment. 
 You must run this app on apps.facebook.com/. 
 For more information about Unity3D Facebook SDK visit [Getting-started] (https://developers.facebook.com/docs/unity/getting-started/) with App42 platform with Unity Facebook.
