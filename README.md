@@ -1,7 +1,6 @@
-App42-Unity3D-Facebook-Leaderboard
-==================================
+App42-Unity3d-Facebook-Global-LeaderBoard 
+=========================================
 
-App42 Unity3D SDK Facebook Leaderboard Sample.
 
 This is a sample for saving facebook user score and displaying leaderboard among facebook friends.
 
@@ -9,6 +8,7 @@ _Features List :_
 
 1. Saving facebook user score.
 2. Displaying leaderboard among facebook friends.
+3. Displaying global leaderboard.
 
 # Running Sample:
 
@@ -46,90 +46,3 @@ public class AppConstant : MonoBehaviour
   public static string SECRET_KEY = "YOUR_SECRET_KEY";
 }
 ```
-__Import Statement__
-```
-using com.shephertz.app42.paas.sdk.csharp;  
-using com.shephertz.app42.paas.sdk.csharp.game;  
-```
-
-#Design Details:
-
-__App42 ScoreBoard:__
-
-Initialize App42ScoreBoard
-To build an instance of ScoreBoardService, BuildScoreBoardService() method needs to be called.
-
-```
-  ScoreBoardService scoreBoardService = sp.BuildScoreBoardService(); // Initializing ScoreBoard Service.
-```
-
-Saving Facebook User Score.
-
-For saving facebook user score, we need at least a gameName, facebook userId to whome score have to be save, score value, and a callback.
-
-```
-public class App42Console : MonoBehaviour,App42CallBack
-{
-  public void SaveUserScore(string userId, string score)
-  {
-    scoreService.SaveUserScore(constants.GameName, userId, Convert.ToDouble(score), callback);
-  }
-}
-```
-Here is the CallBack for Response of saved score :-
-```
-public class SaveCallback : MonoBehaviour,App42CallBack 
-{
-	public void OnSuccess (object response)
-	{
-		AppConstant.SetSaved(true);
-	}
-	
-	public void OnException (Exception e)
-	{
-		// Debug.Log("Exception Occurred : " + e);
-	}
-}
-```
-Now We have to show the leaderboard of facebook game players.
-```
-public class App42Console : MonoBehaviour,App42CallBack 
-{
-  public void SocialConnectWithApp42(string fbAccessToken)
-  	{
-  	 sp = AppConstant.GetServce();
-  	 scoreService = AppConstant.GetScoreService(sp);
-  	 scoreService.GetTopNRankersFromFacebook(constants.GameName, fbAccessToken, 10, this);
-  	}
-}
-```
-Here is the CallBack for Response of Top Rankers From Facebook :-
-```
-public class App42Console : MonoBehaviour,App42CallBack 
-{
-  public void OnSuccess (object response)
-  {
-    if (response is Game){
-    Game gameObj = (Game)response;
-    IList<Game.Score> scoreList = gameObj.GetScoreList();
-    Debug.Log(scoreList);
-    for (int i=0 ;i< scoreList.Count;i++)
-    {
-      string userName = scoreList[i].GetFacebookProfile().GetName();
-      IList<string> list = new List<string>();
-      string rank = (i+1).ToString();
-      list.Add(rank);
-      list.Add(userName);
-      list.Add(scoreList[i].GetValue().ToString());
-      fList.Add(list);
-    }
-  }
-  public void OnException (Exception e)
-  {
-    Debug.Log("Exception Occurred : " + e.ToString());
-  }
-}
-```
-__Note:__ Facebook Unity3d SDK doesn’t  support desktop applications at the moment. 
-You must run this app on apps.facebook.com/. 
-For more information about Unity3D Facebook SDK visit [Getting-started] (https://developers.facebook.com/docs/unity/getting-started/) with App42 platform with Unity Facebook.
